@@ -8,4 +8,8 @@ export default defineConfig({
     exclude: ['lucide-react'],
   },
   base: '/',
+  build: {
+    outDir: 'dist',
+    sourcemap: true
+  }
 });

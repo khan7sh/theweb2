@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
+import About from '../components/About';
 import Services from '../components/Services';
 import Portfolio from '../components/Portfolio';
 import Contact from '../components/Contact';
@@ -11,11 +12,11 @@ export default function Home() {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.state?.scrollToContact) {
-      const contactSection = document.getElementById('contact');
-      if (contactSection) {
+    if (location.state?.scrollToSection) {
+      const section = document.getElementById(location.state.scrollToSection);
+      if (section) {
         setTimeout(() => {
-          contactSection.scrollIntoView({ behavior: 'smooth' });
+          section.scrollIntoView({ behavior: 'smooth' });
         }, 100);
       }
       // Clear the state
@@ -30,6 +31,7 @@ export default function Home() {
         <Hero />
         <Services />
         <Portfolio />
+        <About />
         <Contact />
       </main>
       <Footer />

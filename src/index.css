@@ -44,7 +44,7 @@
   }
 
   .subtle-border {
-    @apply border border-white/[0.08];
+    @apply border border-white/[0.09];
   }
 
   .card-shadow {
@@ -123,8 +123,10 @@
 
   /* Mobile Navigation */
   .mobile-nav {
-    @apply fixed inset-x-0 top-[72px] p-4 glass-effect subtle-border
-           transform transition-all duration-300 ease-in-out;
+    @apply fixed inset-x-0 top-[72px] p-4 
+           transform transition-all duration-300 ease-in-out z-[40]
+           glass-effect subtle-border
+           bg-gray-950/95 backdrop-blur-lg;
   }
 
   .mobile-nav-item {
@@ -159,6 +161,76 @@
 
   .animate-fade-in-up {
     animation: fade-in-up 0.5s ease-out;
+  }
+
+  .bg-pattern-grid {
+    background-image: 
+      linear-gradient(to right, rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .bg-pattern-dots {
+    background-image: radial-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .bg-gradient-dark {
+    background: linear-gradient(
+      to bottom,
+      rgba(17, 24, 39, 1),
+      rgba(17, 24, 39, 0.8)
+    );
+  }
+
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.05;
+  }
+
+  .section-shadow-top {
+    background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.7) 0%,
+      transparent 100%
+    );
+    height: 120px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+  .section-shadow-bottom {
+    background: linear-gradient(to top,
+      rgb(3, 7, 18) 0%,
+      transparent 100%
+    );
+    height: 120px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0; 
+    z-index: 1;
+  }
+
+  .section-shadow-both {
+    &::before {
+      content: '';
+      @apply section-shadow-top;
+    }
+    &::after {
+      content: '';
+      @apply section-shadow-bottom;
+    }
+  }
+
+  .bg-deep-purple {
+    background: linear-gradient(to bottom, #13111C, #0F0A1A);
+  }
+
+  .bg-deep-blue {
+    background: linear-gradient(to bottom, #0A0F1F, #070B15);
   }
 }
 

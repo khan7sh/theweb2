@@ -55,14 +55,13 @@ const values = [
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-gray-950">
+    <div className="min-h-screen bg-dark-purple">
       <Navbar />
       
-      {/* Hero Section */}
-      <section className="pt-32 pb-16 relative">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_#3b0764,_transparent_50%)]"></div>
+      {/* Hero Section with improved background */}
+      <section className="pt-32 pb-16 relative overflow-hidden bg-dark-purple">
         <div className="max-w-7xl mx-auto container-padding relative">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl opacity-0 animate-fade-in-up animate-once">
             <h1 className="heading-xl mb-6">
               About <span className="text-gradient">TheCraftWeb</span>
             </h1>
@@ -74,14 +73,15 @@ export default function About() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto container-padding">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+      {/* Stats with gradient background */}
+      <section className="py-20 relative bg-dark-purple">
+        <div className="max-w-7xl mx-auto container-padding relative">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} 
                    className="relative p-8 rounded-xl subtle-border glass-effect hover-lift 
-                            overflow-hidden group">
+                            overflow-hidden group opacity-0 animate-fade-in-up animate-once"
+                   style={{ animationDelay: `${index * 200}ms` }}>
                 <div className="absolute top-0 right-0 p-3 text-purple-400/20 
                               transform translate-x-2 -translate-y-2 group-hover:text-purple-400/40 
                               transition-colors duration-300">
@@ -98,10 +98,10 @@ export default function About() {
         </div>
       </section>
 
-      {/* Mission */}
-      <section className="py-20 bg-black">
-        <div className="max-w-7xl mx-auto container-padding">
-          <div className="max-w-3xl mx-auto text-center">
+      {/* Mission with pattern background */}
+      <section className="py-20 relative bg-dark-purple">
+        <div className="max-w-7xl mx-auto container-padding relative">
+          <div className="max-w-3xl mx-auto text-center opacity-0 animate-fade-in-up animate-once">
             <h2 className="heading-lg mb-6">Our Mission</h2>
             <p className="text-xl text-gray-400">
               To empower businesses with innovative digital solutions that drive growth, 
@@ -111,19 +111,18 @@ export default function About() {
         </div>
       </section>
 
-      {/* Values */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto container-padding">
-          <h2 className="heading-lg mb-12 text-center">
+      {/* Values with improved layout */}
+      <section className="py-20 relative bg-dark-purple">
+        <div className="max-w-7xl mx-auto container-padding relative">
+          <h2 className="heading-lg mb-12 text-center opacity-0 animate-fade-in-up animate-once">
             <span className="text-gradient">Our Values</span>
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
               <div key={index} 
                    className="p-6 rounded-xl subtle-border glass-effect hover-lift
-                            group relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-transparent 
-                              opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            group relative overflow-hidden opacity-0 animate-fade-in-up animate-once"
+                   style={{ animationDelay: `${(index + 1) * 200}ms` }}>
                 <div className="relative">
                   <div className="text-purple-400 mb-4 transform group-hover:scale-110 
                                 transition-transform duration-300">
@@ -139,39 +138,46 @@ export default function About() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-black">
+      <section className="py-20 bg-dark-purple">
         <div className="max-w-7xl mx-auto container-padding">
           <h2 className="heading-lg mb-12 text-center">
             <span className="text-gradient">Why Choose Us</span>
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-8 rounded-2xl subtle-border glass-effect hover-lift group">
-              <h3 className="text-xl font-semibold text-white mb-4 group-hover:text-gradient">
-                Fresh Perspective
-              </h3>
-              <p className="text-gray-400">
-                As a new agency, we bring fresh ideas and innovative approaches to every project, 
-                unbound by conventional limitations.
-              </p>
-            </div>
-            <div className="p-8 rounded-2xl subtle-border glass-effect hover-lift group">
-              <h3 className="text-xl font-semibold text-white mb-4 group-hover:text-gradient">
-                Dedicated Attention
-              </h3>
-              <p className="text-gray-400">
-                With a focused client base, we provide personalized attention and care that larger 
-                agencies simply can't match.
-              </p>
-            </div>
-            <div className="p-8 rounded-2xl subtle-border glass-effect hover-lift group">
-              <h3 className="text-xl font-semibold text-white mb-4 group-hover:text-gradient">
-                Modern Stack
-              </h3>
-              <p className="text-gray-400">
-                We exclusively use cutting-edge technologies and best practices to ensure your 
-                project is future-proof and scalable.
-              </p>
-            </div>
+            {[
+              {
+                title: 'Fresh Perspective',
+                description: 'As a new agency, we bring fresh ideas and innovative approaches to every project, unbound by conventional limitations.'
+              },
+              {
+                title: 'Dedicated Attention',
+                description: 'With a focused client base, we provide personalized attention and care that larger agencies simply can\'t match.'
+              },
+              {
+                title: 'Modern Stack',
+                description: 'We exclusively use cutting-edge technologies and best practices to ensure your project is future-proof and scalable.'
+              }
+            ].map((item, index) => (
+              <div 
+                key={index} 
+                className="p-8 rounded-2xl subtle-border glass-effect group relative 
+                           overflow-hidden transition-all duration-300 hover:scale-[1.02]
+                           opacity-0 animate-fade-in-up animate-once"
+                style={{ animationDelay: `${(index + 1) * 200}ms` }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent 
+                              opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative">
+                  <h3 className="text-xl font-semibold text-white mb-4 group-hover:text-gradient 
+                               transition-colors duration-300">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

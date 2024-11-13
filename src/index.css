@@ -10,15 +10,15 @@
 
 @layer components {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-300 via-purple-400 to-indigo-400;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-600;
   }
 
   .glass-effect {
-    @apply backdrop-blur-xl bg-gray-950/50 supports-[backdrop-filter]:bg-gray-950/30;
+    @apply bg-gray-900/40 backdrop-blur-lg;
   }
 
   .hover-lift {
-    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)];
+    @apply hover:-translate-y-1 hover:shadow-lg;
   }
 
   .input-style {
@@ -28,7 +28,7 @@
   }
 
   .section-padding {
-    @apply py-16 sm:py-24 lg:py-32 xl:py-40;
+    @apply py-16 sm:py-24;
   }
 
   .container-padding {
@@ -40,7 +40,7 @@
   }
 
   .heading-lg {
-    @apply text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight;
+    @apply text-3xl sm:text-4xl lg:text-5xl font-bold;
   }
 
   .subtle-border {
@@ -164,4 +164,8 @@
 
 .content-wrapper {
   @apply max-w-7xl mx-auto w-full;
+}
+
+.container {
+  @apply max-w-7xl mx-auto;
 }

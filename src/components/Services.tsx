@@ -44,11 +44,12 @@ export default function Services() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
               <div key={index} 
-                   className={`group p-8 lg:p-10 rounded-2xl subtle-border glass-effect hover-lift 
-                            card-shadow transition-all duration-300 animate-fade-in-up delay-${200 * (index + 1)}`}>
+                   className="group p-6 sm:p-8 rounded-2xl subtle-border glass-effect hover-lift 
+                            card-shadow transition-all duration-300 animate-fade-in-up"
+                   style={{ animationDelay: `${200 * (index + 1)}ms` }}>
                 <div className="flex items-center justify-between mb-6">
                   <div className="p-3 rounded-xl bg-purple-500/10 text-purple-400">
                     {service.icon}

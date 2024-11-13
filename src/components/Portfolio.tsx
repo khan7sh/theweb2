@@ -50,25 +50,13 @@ export default function Portfolio() {
                    className={`flex flex-col lg:flex-row gap-12 items-center 
                             ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}
                             opacity-0 animate-fade-in-up animate-once animate-delay-${(index + 2)}00`}>
-                <div className="lg:w-1/2">
-                  <div className="relative group">
-                    <div className="absolute inset-0 bg-purple-500/10 opacity-0 group-hover:opacity-100 
-                                  transition-opacity duration-300 rounded-2xl"></div>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                  <div className="w-full lg:w-auto">
                     <img 
                       src={project.image} 
                       alt={project.title}
-                      className="rounded-2xl subtle-border card-shadow w-full h-auto"
+                      className="rounded-2xl subtle-border card-shadow w-full h-[200px] sm:h-[300px] lg:h-[400px] object-cover"
                     />
-                    <a href={`https://${project.link}`} 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       className="absolute inset-0 flex items-center justify-center opacity-0 
-                                group-hover:opacity-100 transition-opacity duration-300">
-                      <span className="px-6 py-3 bg-white text-gray-900 rounded-lg font-medium 
-                                   hover:bg-gray-100 transition-colors">
-                        Visit Website
-                      </span>
-                    </a>
                   </div>
                 </div>
                 

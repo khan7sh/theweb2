@@ -68,30 +68,26 @@ export default function Contact() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <input
-                type="text"
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+              <input 
+                type="text" 
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Your Name"
                 required
-                className="w-full px-4 py-3 bg-gray-900 border border-gray-800 rounded-lg
-                         text-white placeholder-gray-400 focus:ring-2 focus:ring-purple-500 
-                         focus:border-transparent transition-colors"
+                className="input-style w-full px-4 py-3 text-base sm:text-lg"
               />
             </div>
-            <div>
-              <input
-                type="email"
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+              <input 
+                type="email" 
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Your Email"
                 required
-                className="w-full px-4 py-3 bg-gray-900 border border-gray-800 rounded-lg
-                         text-white placeholder-gray-400 focus:ring-2 focus:ring-purple-500 
-                         focus:border-transparent transition-colors"
+                className="input-style w-full px-4 py-3 text-base sm:text-lg"
               />
             </div>
             <div>

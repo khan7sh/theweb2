@@ -34,7 +34,7 @@ export default function Portfolio() {
     <section id="work" className="section-padding bg-gradient-to-b from-gray-950 to-black">
       <div className="site-container container-padding">
         <div className="content-container">
-          <div className="max-w-3xl mb-16 opacity-0 animate-fade-in-up animate-once">
+          <div className="max-w-3xl mb-16 animate-fade-in-up">
             <h2 className="heading-lg mb-4">
               <span className="text-gradient">Featured Work</span>
             </h2>
@@ -49,7 +49,7 @@ export default function Portfolio() {
               <div key={index} 
                    className={`flex flex-col lg:flex-row gap-12 items-center 
                             ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}
-                            opacity-0 animate-fade-in-up animate-once animate-delay-${(index + 2)}00`}>
+                            animate-fade-in-up delay-${200 * (index + 1)}`}>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                   <div className="w-full lg:w-auto">
                     <img 

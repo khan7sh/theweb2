@@ -34,7 +34,7 @@ export default function Services() {
     <section id="services" className="section-padding bg-gray-950">
       <div className="site-container container-padding">
         <div className="content-container">
-          <div className="max-w-3xl opacity-0 animate-fade-in-up animate-once">
+          <div className="max-w-3xl animate-fade-in-up">
             <h2 className="heading-lg mb-4">
               <span className="text-gradient">Our Services</span>
             </h2>
@@ -48,8 +48,7 @@ export default function Services() {
             {services.map((service, index) => (
               <div key={index} 
                    className={`group p-8 lg:p-10 rounded-2xl subtle-border glass-effect hover-lift 
-                            card-shadow transition-all duration-300 opacity-0 animate-fade-in-up 
-                            animate-once animate-delay-${(index + 2)}00`}>
+                            card-shadow transition-all duration-300 animate-fade-in-up delay-${200 * (index + 1)}`}>
                 <div className="flex items-center justify-between mb-6">
                   <div className="p-3 rounded-xl bg-purple-500/10 text-purple-400">
                     {service.icon}

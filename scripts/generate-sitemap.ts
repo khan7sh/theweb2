@@ -1,5 +1,10 @@
-import { writeFileSync } from 'fs';
+import { writeFile } from 'fs/promises';
 import { resolve } from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const pages = [
   '',
@@ -26,4 +31,10 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
   `).join('')}
 </urlset>`;
 
-writeFileSync(resolve(process.cwd(), 'public/sitemap.xml'), sitemap); 
+try {
+  await writeFile(resolve(process.cwd(), 'public/sitemap.xml'), sitemap);
+  console.log('Sitemap generated successfully');
+} catch (error) {
+  console.error('Error generating sitemap:', error);
+  process.exit(1);
+} 

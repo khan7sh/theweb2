@@ -12,16 +12,24 @@ export default function Home() {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.state?.scrollToSection) {
-      const section = document.getElementById(location.state.scrollToSection);
-      if (section) {
-        setTimeout(() => {
+    // Scroll to top on mount
+    window.scrollTo(0, 0);
+
+    // Handle section scrolling
+    const handleScroll = () => {
+      if (location.state?.scrollToSection) {
+        const section = document.getElementById(location.state.scrollToSection);
+        if (section) {
           section.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
+          // Clear the state
+          window.history.replaceState({}, document.title);
+        }
       }
-      // Clear the state
-      window.history.replaceState({}, document.title);
-    }
+    };
+
+    // Delay scroll to ensure components are mounted
+    const timer = setTimeout(handleScroll, 100);
+    return () => clearTimeout(timer);
   }, [location.state]);
 
   return (

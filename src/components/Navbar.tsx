@@ -23,7 +23,7 @@ export default function Navbar() {
     if (location.pathname !== '/') {
       navigate('/', { state: { scrollToSection: sectionId } });
     } else {
-      const section = document.getElementById('work');
+      const section = document.getElementById(sectionId);
       section?.scrollIntoView({ behavior: 'smooth' });
     }
   };

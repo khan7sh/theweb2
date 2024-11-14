@@ -8,8 +8,6 @@
     "build": "tsc && vite build && npm run generate-sitemap",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "generate-sitemap": "ts-node scripts/generate-sitemap.ts",
-    "type-check": "tsc --noEmit",
     "postbuild": "cp dist/index.html dist/404.html"
   },
   "dependencies": {

@@ -32,11 +32,13 @@ export default defineConfig({
     })
   ],
   build: {
+    outDir: 'dist',
+    sourcemap: true,
     rollupOptions: {
-      external: ['react-helmet-async'],
       output: {
-        globals: {
-          'react-helmet-async': 'ReactHelmetAsync'
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          ui: ['lucide-react']
         }
       }
     }

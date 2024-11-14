@@ -1,29 +1,8 @@
 import React from 'react';
-import { Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
+import { Mail, ArrowRight } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ContactForm from '../components/Contact';
-
-const contactDetails = [
-  {
-    icon: <Mail className="h-6 w-6" />,
-    title: 'Email',
-    value: 'contact@thecraftweb.com',
-    link: 'mailto:contact@thecraftweb.com'
-  },
-  {
-    icon: <Phone className="h-6 w-6" />,
-    title: 'Phone',
-    value: '+44 (0) 123 456 7890',
-    link: 'tel:+441234567890'
-  },
-  {
-    icon: <MapPin className="h-6 w-6" />,
-    title: 'Location',
-    value: 'London, United Kingdom',
-    link: 'https://maps.google.com'
-  }
-];
 
 export default function ContactPage() {
   return (
@@ -31,51 +10,70 @@ export default function ContactPage() {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16 relative">
+      <section className="pt-32 pb-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_#3b0764,_transparent_50%)]"></div>
-        <div className="site-container container-padding relative">
-          <div className="content-container">
-            <div className="max-w-3xl opacity-0 animate-fade-in-up animate-once">
-              <h1 className="heading-xl mb-6">
-                Let's <span className="text-gradient">Connect</span>
-              </h1>
-              <p className="text-xl text-gray-400">
-                Ready to start your next project? Get in touch with us and let's create something amazing together.
-              </p>
+        <div className="max-w-7xl mx-auto container-padding relative">
+          <div className="max-w-3xl">
+            <h1 className="heading-xl mb-6">
+              Let's Discuss Your <span className="text-gradient">Next Project</span>
+            </h1>
+            <p className="text-xl text-gray-400">
+              We're here to help transform your digital vision into reality. Reach out to start a conversation about your project needs.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-24 bg-black relative">
+        <div className="max-w-7xl mx-auto container-padding">
+          <div className="grid lg:grid-cols-2 gap-16">
+            {/* Contact Information */}
+            <div className="space-y-8">
+              <div>
+                <h2 className="text-3xl font-semibold text-white mb-6">Get in Touch</h2>
+                <p className="text-gray-400 text-lg leading-relaxed mb-8">
+                  Have a project in mind? We'd love to discuss how we can help bring your vision to life.
+                </p>
+              </div>
+              
+              <div className="p-8 rounded-2xl subtle-border glass-effect hover-lift transition-all duration-300">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="p-3 rounded-xl bg-purple-500/10 text-purple-400">
+                    <Mail className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-white">Email Us</h3>
+                    <a 
+                      href="mailto:contact@thecraftweb.com" 
+                      className="text-gray-400 hover:text-purple-400 transition-colors"
+                    >
+                      contact@thecraftweb.com
+                    </a>
+                  </div>
+                </div>
+                <p className="text-gray-500 text-sm mt-4">
+                  We aim to respond to all inquiries within 24 hours during business days.
+                </p>
+              </div>
+
+              <div className="p-8 rounded-2xl subtle-border glass-effect">
+                <h3 className="text-lg font-semibold text-white mb-4">Business Hours</h3>
+                <div className="space-y-2 text-gray-400">
+                  <p>Monday - Friday: 9:00 AM - 6:00 PM GMT</p>
+                  <p>Weekend: By appointment only</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Form */}
+            <div className="lg:pl-8">
+              <ContactForm />
             </div>
           </div>
         </div>
       </section>
-      
-      {/* Contact Details */}
-      <section className="bg-gray-800 py-16">
-        <div className="site-container container-padding">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {contactDetails.map((contact, index) => (
-              <div key={index} className="flex items-center">
-                <div className="mr-4">
-                  {contact.icon}
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold mb-2">{contact.title}</h3>
-                  <a href={contact.link} className="text-sm text-gray-400 hover:text-white">
-                    {contact.value}
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      
-      {/* Contact Form */}
-      <section className="bg-gray-700 py-16">
-        <div className="site-container container-padding">
-          <h2 className="heading-lg mb-6">Get in Touch</h2>
-          <ContactForm />
-        </div>
-      </section>
-      
+
       <Footer />
     </div>
   );

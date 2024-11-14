@@ -14,6 +14,8 @@ export default defineConfig({
         description: 'Modern Web Development Agency',
         theme_color: '#3b0764',
         background_color: '#0a0a0a',
+        display: 'standalone',
+        start_url: '/',
         icons: [
           {
             src: '/icon-192.png',
@@ -28,16 +30,5 @@ export default defineConfig({
         ]
       }
     })
-  ],
-  build: {
-    sourcemap: true,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          ui: ['lucide-react']
-        }
-      }
-    }
-  }
+  ]
 });

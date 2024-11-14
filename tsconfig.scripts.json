@@ -1,14 +1,12 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "ESNext",
-    "moduleResolution": "node",
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "esModuleInterop": true,
     "strict": true,
     "skipLibCheck": true,
-    "outDir": "./dist-scripts",
-    "allowJs": true,
-    "types": ["node"]
+    "outDir": "./dist-scripts"
   },
   "include": ["scripts/**/*"],
   "exclude": ["node_modules"]

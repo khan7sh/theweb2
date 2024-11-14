@@ -11,7 +11,7 @@ const pages = [
   '/cookies'
 ];
 
-const baseUrl = 'https://your-netlify-domain.netlify.app';
+const baseUrl = 'https://thecreaftweb.co.uk';
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

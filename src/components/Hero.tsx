@@ -38,19 +38,19 @@ export default function Hero() {
             with cutting-edge technology to create impactful web solutions.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 opacity-0 animate-fade-in-up animate-once animate-delay-500">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 opacity-0 animate-fade-in-up animate-once animate-delay-500 w-full sm:w-auto">
             <a href="#contact" 
-               className="group inline-flex items-center justify-center px-8 py-4 rounded-lg 
+               className="group inline-flex items-center justify-center px-6 sm:px-8 py-4 rounded-lg 
                         bg-white text-gray-900 hover:bg-gray-100 transition-all duration-200
-                        font-medium text-lg hover-lift">
+                        font-medium text-base sm:text-lg hover-lift w-full sm:w-auto">
               Start a Project
-              <ArrowRight className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="ml-2 h-5 w-5 sm:h-6 sm:w-6 transition-transform group-hover:translate-x-1" />
             </a>
             <a href="#work" 
-               className="inline-flex items-center justify-center px-8 py-4 rounded-lg
+               className="inline-flex items-center justify-center px-6 sm:px-8 py-4 rounded-lg
                         subtle-border glass-effect text-gray-300 hover:text-white
                         hover:border-purple-500/20 transition-all duration-200
-                        font-medium text-lg hover-lift">
+                        font-medium text-base sm:text-lg hover-lift w-full sm:w-auto">
               View Portfolio
             </a>
           </div>

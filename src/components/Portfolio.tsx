@@ -44,20 +44,21 @@ export default function Portfolio() {
             </p>
           </div>
 
-          <div className="space-y-24">
+          <div className="space-y-16 sm:space-y-24">
             {projects.map((project, index) => (
               <div key={index} 
-                   className={`flex flex-col lg:flex-row gap-12 items-center 
+                   className={`flex flex-col lg:flex-row gap-8 lg:gap-12 items-start lg:items-center 
                             ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}
-                            opacity-0 animate-fade-in-up animate-once animate-delay-${(index + 2)}00`}>
-                <div className="lg:w-1/2">
-                  <div className="relative group">
+                            opacity-0 animate-fade-in-up animate-once`}
+                   style={{ animationDelay: `${(index + 1) * 200}ms` }}>
+                <div className="w-full lg:w-1/2">
+                  <div className="relative group aspect-video">
                     <div className="absolute inset-0 bg-purple-500/10 opacity-0 group-hover:opacity-100 
                                   transition-opacity duration-300 rounded-2xl"></div>
                     <img 
                       src={project.image} 
                       alt={project.title}
-                      className="rounded-2xl subtle-border card-shadow w-full h-auto"
+                      className="rounded-2xl subtle-border card-shadow w-full h-full object-cover"
                     />
                     <a href={`https://${project.link}`} 
                        target="_blank" 
@@ -72,28 +73,25 @@ export default function Portfolio() {
                   </div>
                 </div>
                 
-                <div className="lg:w-1/2">
-                  <div className="space-y-6">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-purple-400 font-medium">{project.category}</span>
-                      <a href={`https://${project.link}`} 
-                         target="_blank" 
-                         rel="noopener noreferrer"
-                         className="text-purple-400 hover:text-purple-300 transition-colors">
-                        <ArrowUpRight className="h-5 w-5" />
-                      </a>
-                    </div>
-                    
-                    <h3 className="text-2xl lg:text-3xl font-semibold text-white">{project.title}</h3>
-                    <p className="text-gray-400 lg:text-lg">{project.description}</p>
-                    
-                    <div className="grid grid-cols-3 gap-4 pt-4">
-                      {project.stats.map((stat, idx) => (
-                        <div key={idx} className="text-center p-3 rounded-lg subtle-border glass-effect">
-                          <span className="text-sm lg:text-base text-gray-300">{stat}</span>
-                        </div>
-                      ))}
-                    </div>
+                <div className="w-full lg:w-1/2 space-y-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+                    <h3 className="text-2xl font-semibold text-white">{project.title}</h3>
+                    <span className="text-sm text-purple-400 px-3 py-1 rounded-full subtle-border inline-block w-fit">
+                      {project.category}
+                    </span>
+                  </div>
+                  
+                  <p className="text-gray-400 text-base sm:text-lg">
+                    {project.description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-3">
+                    {project.stats.map((stat, idx) => (
+                      <span key={idx} 
+                            className="px-3 py-1 rounded-full text-sm text-gray-400 subtle-border">
+                        {stat}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>

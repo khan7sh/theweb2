@@ -10,6 +10,7 @@ import Cookies from './pages/Cookies';
 import CookieConsent from './components/CookieConsent';
 import Admin from './pages/Admin';
 import ContactPage from './pages/Contact';
+import { HelmetProvider } from 'react-helmet-async';
 
 // Scroll to top component
 function ScrollToTop() {
@@ -24,21 +25,23 @@ function ScrollToTop() {
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/services" element={<ServicesPage />} />
-        <Route path="/portfolio" element={<PortfolioPage />} />
-        <Route path="/privacy" element={<Privacy />} />
-        <Route path="/terms" element={<Terms />} />
-        <Route path="/cookies" element={<Cookies />} />
-        <Route path="/notbookings" element={<Admin />} />
-        <Route path="/contact" element={<ContactPage />} />
-      </Routes>
-      <CookieConsent />
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/cookies" element={<Cookies />} />
+          <Route path="/notbookings" element={<Admin />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+        <CookieConsent />
+      </Router>
+    </HelmetProvider>
   );
 }
 

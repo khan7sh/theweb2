@@ -30,5 +30,15 @@ export default defineConfig({
         ]
       }
     })
-  ]
+  ],
+  build: {
+    rollupOptions: {
+      external: ['react-helmet-async'],
+      output: {
+        globals: {
+          'react-helmet-async': 'ReactHelmetAsync'
+        }
+      }
+    }
+  }
 });

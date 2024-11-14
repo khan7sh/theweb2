@@ -16,14 +16,14 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleSectionScroll = (sectionId: string, e: React.MouseEvent) => {
+  const handleContactScroll = (e: React.MouseEvent) => {
     e.preventDefault();
     setIsOpen(false);
     
     if (location.pathname !== '/') {
-      navigate('/', { state: { scrollToSection: sectionId } });
+      navigate('/', { state: { scrollToSection: 'contact' } });
     } else {
-      const section = document.getElementById(sectionId);
+      const section = document.getElementById('contact');
       section?.scrollIntoView({ behavior: 'smooth' });
     }
   };
@@ -41,40 +41,33 @@ export default function Navbar() {
             </Link>
             
             <div className="hidden lg:flex items-center space-x-12">
-              <a href="#about" 
-                 onClick={(e) => handleSectionScroll('about', e)}
-                 className="text-gray-300 hover:text-white transition-colors relative group">
+              <Link to="/about"
+                    className="text-gray-300 hover:text-white transition-colors relative group">
                 About
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-400 
                              transition-all duration-200 group-hover:w-full"></span>
-              </a>
-              <a href="#services"
-                 onClick={(e) => handleSectionScroll('services', e)}
-                 className="text-gray-300 hover:text-white transition-colors relative group">
+              </Link>
+              <Link to="/services"
+                    className="text-gray-300 hover:text-white transition-colors relative group">
                 Services
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-400 
                              transition-all duration-200 group-hover:w-full"></span>
-              </a>
-              <a href="#portfolio"
-                 onClick={(e) => handleSectionScroll('portfolio', e)}
-                 className="text-gray-300 hover:text-white transition-colors relative group">
+              </Link>
+              <Link to="/portfolio"
+                    className="text-gray-300 hover:text-white transition-colors relative group">
                 Portfolio
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-400 
                              transition-all duration-200 group-hover:w-full"></span>
-              </a>
-              <a href="#contact"
-                 onClick={(e) => handleSectionScroll('contact', e)}
-                 className="px-6 py-3 rounded-lg bg-white text-gray-900 
-                          hover:bg-gray-100 transition-all duration-200 font-medium">
+              </Link>
+              <Link to="/contact"
+                    className="px-6 py-3 rounded-lg bg-white text-gray-900 
+                             hover:bg-gray-100 transition-all duration-200 font-medium">
                 Contact
-              </a>
+              </Link>
             </div>
 
             <button 
-              onClick={(e) => {
-                e.stopPropagation();
-                setIsOpen(!isOpen);
-              }}
+              onClick={() => setIsOpen(!isOpen)}
               className="lg:hidden p-2 rounded-lg hover:bg-gray-800/50 transition-colors">
               {isOpen ? <X className="h-6 w-6 text-white" /> : <Menu className="h-6 w-6 text-white" />}
             </button>
@@ -83,34 +76,31 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile Navigation */}
-      <div 
-        className={`lg:hidden mobile-nav ${
-          isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
-        }`}
-        onClick={(e) => e.stopPropagation()}
-      >
+      <div className={`lg:hidden mobile-nav ${
+        isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+      }`}>
         <div className="site-container container-padding">
           <div className="space-y-2">
-            <a href="#about"
-               className="mobile-nav-item"
-               onClick={(e) => handleSectionScroll('about', e)}>
+            <Link to="/about"
+                  className="mobile-nav-item"
+                  onClick={() => setIsOpen(false)}>
               About
-            </a>
-            <a href="#services"
-               className="mobile-nav-item"
-               onClick={(e) => handleSectionScroll('services', e)}>
+            </Link>
+            <Link to="/services"
+                  className="mobile-nav-item"
+                  onClick={() => setIsOpen(false)}>
               Services
-            </a>
-            <a href="#portfolio"
-               className="mobile-nav-item"
-               onClick={(e) => handleSectionScroll('portfolio', e)}>
+            </Link>
+            <Link to="/portfolio"
+                  className="mobile-nav-item"
+                  onClick={() => setIsOpen(false)}>
               Portfolio
-            </a>
-            <a href="#contact"
-               className="mobile-nav-item bg-white text-gray-900 hover:bg-gray-100"
-               onClick={(e) => handleSectionScroll('contact', e)}>
+            </Link>
+            <Link to="/contact"
+                  className="mobile-nav-item bg-white text-gray-900 hover:bg-gray-100"
+                  onClick={handleContactScroll}>
               Contact
-            </a>
+            </Link>
           </div>
         </div>
       </div>

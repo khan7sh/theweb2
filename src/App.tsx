@@ -9,6 +9,7 @@ import Terms from './pages/Terms';
 import Cookies from './pages/Cookies';
 import CookieConsent from './components/CookieConsent';
 import Admin from './pages/Admin';
+import ContactPage from './pages/Contact';
 
 // Scroll to top component
 function ScrollToTop() {
@@ -34,6 +35,7 @@ function App() {
         <Route path="/terms" element={<Terms />} />
         <Route path="/cookies" element={<Cookies />} />
         <Route path="/notbookings" element={<Admin />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
       <CookieConsent />
     </Router>
